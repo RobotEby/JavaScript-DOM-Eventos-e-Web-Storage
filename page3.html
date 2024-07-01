@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebStorage</title>
+</head>
+<body>
+    <style>
+body {
+    background-color: #2E0F23;
+margin: 10px;
+font-family: Helvetica, sans-serif, Arial;
+}
+
+.preferences {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+border: 10px solid #90ABDA;
+background-color: #F8BBD8;
+padding: 10px;
+border-radius: 50px;
+}
+
+.options {
+display: flex;
+flex-direction: column;
+}
+
+main {
+    color: white;
+}
+
+.title {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.subtitles h2 {
+    display: inline;
+    padding-left: 62px;
+    font-size: 18px;
+}
+
+.description {
+    font-size: larger;
+    padding: 10px;
+}
+
+.content {
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 15px;
+}
+
+.paragraph {
+display: flex;
+padding: 10px;
+}
+    </style>
+
+    <section class="preferences">
+        <section id="background-color" class="options">    
+          <span>Background color</span>    
+          <button>#9B62F0</button>    
+          <button>#2E0F23</button>    
+          <button>#F8BBD8</button>    
+          <button>#3C54B4</button>    
+          <button>#90ABDA</button>   
+        </section>
+    
+        <section id="font-color" class="options">    
+          <span>font color</span>   
+          <button>#000000</button>    
+          <button>#90ABDA</button>    
+          <button>#FFFFFF</button>   
+        </section>
+    
+        <section id="font-size" class="options">    
+          <span>font size</span>    
+          <button>8pt</button>    
+          <button>10pt</button>   
+          <button>12pt</button>    
+          <button>14pt</button>   
+          <button>20pt</button>   
+        </section>
+    
+        <section id="line-height" class="options">    
+          <span>Spacing between lines</span>    
+          <button>1</button>    
+          <button>normal</button>   
+          <button>1.5</button>    
+          <button>2.0</button>    
+          <button>3.0</button>    
+        </section>
+    
+        <section id="font-family" class="options">    
+          <span>font type</span>   
+          <button>Arial</button>    
+          <button>Times New Roman</button>    
+        </section>   
+      </section>   
+
+      <main>    
+        <section class="title">   
+          <h1>Web Storage: Maximizing Online Data Efficiency</h1>   
+        </section>
+    
+        <header class="subtitles">    
+            <h2>Exploring the Potential of Web Storage</h2>
+            <h2>What is Web Storage?</h2>
+            <h2>Because it's important?</h2>
+            <h2>Types of Storage</h2>
+            <h2>Integration in Practice</h2>
+            <h2>Security in Focus</h2>
+            <h2>Explore and Discover</h2>
+
+            <div class="description">
+                <p>Welcome to our journey into the world of web storage, where online storage comes to life. Here, we explore how this essential technology drives the efficiency and functionality of modern web applications.
+
+                    Web storage allows data to be stored directly in the user's browser, offering substantial space to store important information persistently, without overloading the server. Forget the limitations of traditional cookies; web storage provides a personalized experience on each visit, saving your preferences locally for more fluid navigation and interactions adapted to your needs.
+                    
+                    Within the web storage universe, two main techniques stand out: localStorage and sessionStorage. Each has its advantages, from persistent data storage to support for temporary sessions, providing flexibility and control over how data is managed.
+                    
+                    Innovative companies are leveraging the power of web storage to create stand-out digital experiences, from e-commerce apps to educational platforms. The ability to efficiently store and access data is redefining the digital landscape.
+                    
+                    We prioritize security, ensuring that your data is protected against unauthorized access and maintained with maximum integrity.
+                    
+                    On our web storage journey, we invite you to explore its limitless possibilities. Discover how this technology can transform the way you interact with the web and enhance your own digital creations.</p>
+            </div>
+        </section>
+
+        <article class="content">  
+          <h4 class="paragraph">   
+            Discover the transformative potential of web storage, an innovative technology that allows you to efficiently store and manage data directly in the user's browser. By integrating this modern solution into your web applications, you not only improve user experience personalization, but also optimize performance and data accessibility. With robust security features and the ability to support a variety of data types, web storage offers unparalleled flexibility for developers and users. Explore its advanced features and discover how this powerful tool is redefining the standard of digital interactions in the modern internet era.
+          </h4>    
+        </article>   
+      </main>  
+  <script>
+window.onload = () => {
+const setBackgroundColor = (color) => {
+  let content = document.querySelector(".content")
+  content.style.backgroundColor = color
+}
+
+const setFontColor = (color) => {
+  let paragraphs = document.querySelectorAll(".paragraph")
+
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    paragraphs[index].style.color = color
+  }
+}
+
+const setFontSize = (size) => {
+  let paragraphs = document.querySelectorAll(".paragraph")
+
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    paragraphs[index].style.fontSize = size
+  }
+}
+
+const setLineHeight = (height) => {
+  let paragraphs = document.querySelectorAll(".paragraph")
+
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    paragraphs[index].style.lineHeight = height
+  }
+}
+
+const setFontFamily = (family) => {
+  let paragraphs = document.querySelectorAll(".paragraph")
+
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    paragraphs[index].style.fontFamily = family
+  }
+}
+
+// Cor de fundo da tela;
+let backgroundColorButtons = document.querySelectorAll("#background-color>button")
+
+for (let index = 0; index < backgroundColorButtons.length; index += 1) {
+  backgroundColorButtons[index].addEventListener("click", (event) => {
+    setBackgroundColor(event.target.innerHTML)
+  })
+}
+
+// Cor do texto;
+let fontColorButtons = document.querySelectorAll("#font-color>button")
+
+for (let index = 0; index < fontColorButtons.length; index += 1) {
+  fontColorButtons[index].addEventListener("click", (event) => {
+    setFontColor(event.target.innerHTML)
+  })
+}
+
+// Tamanho da fonte
+let fontSizeButtons = document.querySelectorAll("#font-size>button")
+
+for (let index = 0; index < fontSizeButtons.length; index += 1) {
+  fontSizeButtons[index].addEventListener("click", (event) => {
+    setFontSize(event.target.innerHTML)
+  })
+}
+
+// Espaçamento entre as linhas do texto;
+let lineHeightButtons = document.querySelectorAll("#line-height>button")
+
+for (let index = 0; index < lineHeightButtons.length; index += 1) {
+  lineHeightButtons[index].addEventListener("click", (event) => {
+    setLineHeight(event.target.innerHTML)
+  })
+}
+
+// Tipo da fonte (_Font family_).
+let fontFamilyButtons = document.querySelectorAll("#font-family>button")
+
+for (let index = 0; index < fontFamilyButtons.length; index += 1) {
+  fontFamilyButtons[index].addEventListener("click", (event) => {
+    setFontFamily(event.target.innerHTML)
+  })
+}
+}
+  </script>
+</body>
+</html>
